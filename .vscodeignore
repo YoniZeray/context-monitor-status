@@ -1,0 +1,5 @@
+*.vsix
+.vscodeignore
+.gitignore
+.claude/**
+.git/**

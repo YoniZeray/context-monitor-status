@@ -1,0 +1,62 @@
+{
+  "name": "context-monitor-status",
+  "displayName": "Context Monitor Status",
+  "description": "Shows Claude Code context usage from the context-monitor mod in the VS Code status bar, with a one-click handoff.",
+  "version": "1.0.0",
+  "publisher": "yonas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoniZeray/context-monitor-status"
+  },
+  "homepage": "https://github.com/YoniZeray/context-monitor-status",
+  "icon": "icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Context Monitor",
+      "properties": {
+        "contextMonitorStatus.warnAtTokens": {
+          "type": "number",
+          "default": 100000,
+          "description": "Ask whether to create a handoff once a chat reaches this many tokens (once per chat). 0 turns it off."
+        },
+        "contextMonitorStatus.offerNewChat": {
+          "type": "boolean",
+          "default": true,
+          "description": "After a handoff is saved, offer to start a new Claude chat that continues from it."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "contextMonitorStatus.openHandoff",
+        "title": "Context Monitor: Open latest handoff"
+      },
+      {
+        "command": "contextMonitorStatus.refresh",
+        "title": "Context Monitor: Refresh"
+      },
+      {
+        "command": "contextMonitorStatus.createHandoff",
+        "title": "Context Monitor: Create handoff now"
+      }
+    ]
+  },
+  "keywords": [
+    "claude",
+    "claude code",
+    "context",
+    "tokens",
+    "handoff"
+  ]
+}
